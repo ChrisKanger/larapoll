@@ -18,8 +18,8 @@ class VoteManagerController extends Controller
      */
     public function vote($poll, Request $request)
     {
-        $poll = Poll:find($poll);
-        
+        $poll = Poll::find($poll);
+
         try{
             $vote = $request->user()
                 ->poll($poll)
