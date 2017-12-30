@@ -19,7 +19,7 @@ class VoteManagerController extends Controller
     public function vote(Poll $poll, Request $request)
     {
         try{
-            $vote = auth()->user()
+            $vote = $request->user()
                 ->poll($poll)
                 ->vote($request->get('options'));
             if($vote){

@@ -46,7 +46,7 @@ trait PollWriterResults
             $percent = ($votes * 100) /($total);
         }
         echo "<div class='result-option-id'>
-                <strong>{$result['option']->name}</strong><span class='pull-right'>{$percent}%</span>
+                <strong>{$result['option']->name}</strong><span class='pull-right'>".round($percent, 2)."%</span>
                 <div class='progress'>
                     <div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' aria-valuemax='100' style='width: {$percent}%'>
                         <span class='sr-only'>{$percent}% Complete</span>
