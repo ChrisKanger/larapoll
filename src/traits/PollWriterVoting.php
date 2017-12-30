@@ -70,12 +70,15 @@ trait PollWriterVoting
         $class = (Session::has('errors')) ? "warning" : "success";
         $content = (Session::has('errors')) ? session('errors') : session('success');
 
-        echo '<div class="'.$class.' callout" data-closable>
-                <h5>'.$content.'/h5>
-                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
+        if(Session::has('errors') || Session::has('success')){
+
+            echo '<div class="'.$class.' callout" data-closable>
+                    <h5>'.$content.'</h5>
+                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+        }
     }
 
     /**
