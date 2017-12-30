@@ -67,16 +67,15 @@ trait PollWriterVoting
      */
     public function showFeedBack()
     {
-        if(Session::has('errors')){
-            echo '<div class="alert alert-success">';
-            echo session('errors');
-            echo '</div>';
-        }
-        if(Session::has('success')){
-            echo '<div class="alert alert-success">';
-            echo session('success');
-            echo '</div>';
-        }
+        $class = (Session::has('errors')) ? "warning" : "success";
+        $content = (Session::has('errors')) ? session('errors') : ;
+
+        echo '<div class="'.$class.' callout" data-closable>
+                <h5>'.$content.'/h5>
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>'
     }
 
     /**
