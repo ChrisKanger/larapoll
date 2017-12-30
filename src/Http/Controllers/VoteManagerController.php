@@ -16,8 +16,10 @@ class VoteManagerController extends Controller
      * @param Request $request
      * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function vote(Poll $poll, Request $request)
+    public function vote($poll, Request $request)
     {
+        $poll = Poll:find($poll);
+        
         try{
             $vote = $request->user()
                 ->poll($poll)
